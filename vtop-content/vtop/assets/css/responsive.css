@@ -1,0 +1,39 @@
+/* Responsive adjustments for pixel-perfect clone on mobile */
+
+/* Collapse to single column only on actual mobile screens (not desktop mode) */
+@media (max-width: 800px) {
+    .layout-grid {
+        grid-template-columns: 1fr; /* Stack columns on tablet/mobile */
+    }
+    
+    .campus, .session-time {
+        display: none; /* Hide non-essential text on mobile */
+    }
+    
+    .nav-icons {
+        display: none; /* Hide icons on small mobile to save space */
+    }
+    
+    .user-text {
+        font-size: 0; /* Hide username, keep dropdown arrow */
+    }
+    
+    .user-text::after {
+        content: "▼";
+        font-size: 12px;
+    }
+    
+    .thin-sidebar {
+        display: none; /* Hide thin sidebar on mobile, use hamburger instead */
+    }
+    
+    .dashboard-content {
+        padding: 10px;
+    }
+    
+    .panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}

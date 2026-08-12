@@ -1,0 +1,373 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif; /* Strict Arial for VTOP */
+}
+
+body {
+    background-color: #e9ecef; /* slightly darker grey */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header Navbar */
+.top-nav {
+    background: linear-gradient(to bottom, #2b618e, #1c4568);
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    color: white;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: baseline;
+    margin-right: 20px;
+}
+
+.vit-logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    margin-right: 5px;
+}
+
+.campus {
+    font-size: 12px;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 15px;
+    margin-right: 20px;
+}
+
+.nav-icons svg {
+    cursor: pointer;
+}
+
+.quick-links {
+    font-size: 12px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.15);
+    padding: 4px 10px;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.arrow-down {
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+.session-time {
+    font-size: 13px;
+    margin-right: 20px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    position: relative;
+    padding: 10px 0;
+}
+
+.header-profile-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: white;
+}
+
+/* Dropdown */
+.profile-dropdown {
+    position: absolute;
+    top: 45px;
+    right: -15px;
+    width: 260px;
+    background: linear-gradient(to right, #245182, #2b89c7);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    border: 1px solid #1c3d61;
+}
+
+.profile-dropdown.show {
+    display: flex;
+}
+
+.dropdown-profile-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 25px 0;
+    border: 2px solid white;
+    background: white;
+}
+
+.dropdown-buttons-container {
+    width: 100%;
+    border-top: 1px solid #183e63;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-history, .btn-signout {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.btn-history {
+    background-color: #00c1df;
+    margin: 10px 10px 5px 10px;
+}
+
+.btn-history:hover {
+    background-color: #00a4bd;
+}
+
+.btn-signout {
+    background-color: #288a38;
+    margin: 5px 10px 10px 10px;
+}
+
+.btn-signout:hover {
+    background-color: #21732e;
+}
+
+/* Main Layout */
+.main-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Thin Sidebar */
+.thin-sidebar {
+    width: 45px;
+    background: #fff;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.sidebar-icon {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #444;
+}
+
+.sidebar-icon svg {
+    fill: #333;
+}
+
+.sidebar-icon:hover, .sidebar-icon.active {
+    background: #f0f0f0;
+    border-left: 3px solid #1f4e79;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.layout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+}
+
+/* Panels */
+.panel {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: 3px solid #6eb1e2;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.panel-header {
+    background: #fcfcfc;
+    padding: 10px 15px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.semester-tag {
+    color: #d9534f;
+    background: #fdf5e6;
+    padding: 3px 8px;
+    font-size: 12px;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+.table-container {
+    padding: 0;
+    overflow-x: auto;
+}
+
+/* Table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    padding: 10px 15px;
+    text-align: left;
+    font-size: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+    font-weight: 600;
+    color: #333;
+    background: #fafafa;
+}
+
+.course-type {
+    color: #0056b3;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Colors */
+.text-green { color: #28a745; font-weight: bold; }
+.text-blue { color: #007bff; font-weight: bold; }
+.text-red { color: #dc3545; font-weight: bold; }
+
+/* Spotlight */
+.spotlight-panel .panel-body {
+    padding: 15px;
+}
+
+.spotlight-tag {
+    background: #17a2b8;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+}
+
+.badge-num {
+    background: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+.spotlight-item {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+/* Right Panels */
+.empty-box {
+    height: 80px;
+}
+
+.status-box {
+    padding: 0;
+}
+
+.status-row {
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+
+.status-row:last-child {
+    border-bottom: none;
+}
+
+.status-label {
+    flex: 1;
+    padding: 12px 15px;
+    font-size: 13px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.status-val {
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.box-light {
+    background: #d9edf7;
+    color: #31708f;
+}
+
+.box-med {
+    background: #99c2ff;
+    color: #004085;
+}
+
+.box-dark {
+    background: #007bff;
+    color: white;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTOP - Redirecting</title>
+    <script src="vtop/assets/js/auth.js"></script>
+    <script>
+        if (localStorage.getItem("vtop_auth") === "true") {
+            window.location.href = "vtop/content.html";
+        } else {
+            window.location.href = "vtop/login.html";
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting to VTOP...</p>
+</body>
+</html>

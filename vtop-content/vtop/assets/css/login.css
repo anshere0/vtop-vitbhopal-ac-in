@@ -1,0 +1,200 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif; /* Adjusted to Arial */
+}
+
+body {
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background: linear-gradient(to right, #1f4e79, #3583c9, #1f4e79);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #0a2d52;
+    height: 45px;
+}
+
+.vit-logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    margin-right: 5px;
+}
+
+.campus {
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.login-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 60px;
+}
+
+.login-card {
+    background: #fdfdfd;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 1px solid #d4d4d4;
+}
+
+.login-header {
+    background: #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #333;
+    border-top: 3px solid #6ab0e8;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.error-message {
+    color: red;
+    font-size: 13px;
+    padding: 10px 20px 0;
+    display: none;
+}
+
+.login-form {
+    padding: 25px 40px;
+    background: #fff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    outline: none;
+    font-size: 13px;
+}
+
+.input-icon {
+    padding: 8px 12px;
+    background: #f1f1f1;
+    border-left: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.captcha-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#captcha-canvas {
+    border: 1px solid #ccc;
+    border-right: none;
+    background: #f0f0f0;
+}
+
+.refresh-btn {
+    background: #28a745;
+    border: 1px solid #28a745;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.refresh-btn:hover {
+    background: #218838;
+}
+
+.captcha-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 13px;
+    outline: none;
+}
+
+.submit-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 7px 20px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.login-btn:hover {
+    background: #0069d9;
+}
+
+.login-footer {
+    background: #fcfcfc;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #e0e0e0;
+    font-size: 12px;
+}
+
+.left-links {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.left-links a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.left-links a:hover {
+    text-decoration: underline;
+}
+
+.right-link a {
+    color: #28a745;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.right-link a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    background: #1f4e79;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 11px;
+}
