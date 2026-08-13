@@ -57,3 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// Accordion toggle function for profile page
+window.toggleAccordion = function(element) {
+    const item = element.parentElement;
+    item.classList.toggle("active");
+};

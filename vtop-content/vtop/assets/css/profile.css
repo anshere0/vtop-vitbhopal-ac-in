@@ -1,0 +1,143 @@
+/* Profile Page Specific Styles */
+.profile-content {
+    padding: 20px;
+    background-color: #f4f6f9;
+    min-height: calc(100vh - 60px);
+}
+
+.profile-header-card {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    display: flex;
+    padding: 20px;
+    margin-bottom: 20px;
+    gap: 30px;
+}
+
+.profile-photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+}
+
+.profile-photo {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.profile-name {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.profile-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.detail-row {
+    display: flex;
+    gap: 10px;
+}
+
+.detail-label {
+    color: #c0392b; /* Red color from screenshot */
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    min-width: 150px;
+}
+
+.detail-value {
+    color: #333;
+    font-size: 14px;
+}
+
+/* Accordion Styles */
+.accordion-item {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.accordion-header {
+    background: linear-gradient(to right, #1a4a7b, #3498db);
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.accordion-header svg {
+    margin-right: 15px;
+    fill: white;
+    background-color: #f1c40f;
+    border-radius: 4px;
+    padding: 3px;
+}
+
+.accordion-header .toggle-icon {
+    margin-left: auto;
+    transition: transform 0.3s;
+}
+
+.accordion-item.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.accordion-item.active .accordion-content {
+    display: block;
+}
+
+/* Information Table */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table td {
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    font-size: 13px;
+}
+
+.info-table td:first-child {
+    background-color: #f0f3f8;
+    width: 30%;
+    font-weight: 600;
+    color: #444;
+}
+
+.info-table td:last-child {
+    background-color: #fdf5e6; /* Light yellow background from screenshot */
+}
+
+.info-table tr.section-title td {
+    background-color: #a4bdf6;
+    color: #000;
+    font-weight: 600;
+    text-align: center;
+}

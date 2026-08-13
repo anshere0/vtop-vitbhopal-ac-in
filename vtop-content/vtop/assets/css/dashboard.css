@@ -371,3 +371,54 @@ body {
     background: #007bff;
     color: white;
 }
+
+/* Sidebar Popout Menu */
+.sidebar-icon.popout-trigger {
+    position: relative;
+}
+
+.sidebar-popout {
+    position: absolute;
+    left: 45px;
+    top: 0;
+    width: 250px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+.sidebar-icon.popout-trigger:hover .sidebar-popout,
+.sidebar-popout.show {
+    display: flex;
+}
+
+.popout-header {
+    background: #fcfcfc;
+    padding: 10px 15px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.popout-item {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.popout-item:hover {
+    background: #f0f0f0;
+}
+
+.popout-icon {
+    margin-right: 10px;
+}
