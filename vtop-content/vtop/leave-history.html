@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTOP - Dashboard</title>
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <script src="assets/js/auth.js"></script>
+    <script>checkAuth();</script>
+</head>
+<body>
+    <header class="top-nav">
+        <div class="nav-left">
+            <button class="hamburger-menu">
+                <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            </button>
+            <div class="nav-brand">
+                <span class="vit-logo">VIT</span>
+                <span class="campus">(Bhopal Campus)</span>
+            </div>
+            <div class="nav-icons">
+                <!-- Home -->
+                <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                <!-- Print -->
+                <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                <!-- Star -->
+                <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <div class="quick-links">
+                Quick Links <span class="arrow-down">▼</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="session-time">
+                Session Time : <span id="session-timer">19m 23s</span>
+            </div>
+            <div class="user-profile" id="profile-toggle">
+                <img src="assets/images/profile.jpg" alt="Profile" class="header-profile-img">
+                <span class="user-text">24BSA10213 (STUDENT) ▼</span>
+                
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <img src="assets/images/profile.jpg" alt="Profile Large" class="dropdown-profile-img">
+                    <div class="dropdown-buttons-container">
+                        <button class="btn-history">Login History</button>
+                        <button class="btn-signout" id="logout-btn">Sign out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <!-- Thin sidebar -->
+        <aside class="thin-sidebar">
+            <div class="sidebar-icon active popout-trigger" data-target="home-popout">
+                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                
+                <div class="sidebar-popout" id="home-popout">
+                    <div class="popout-header" style="text-align: center; font-weight: bold; background: #fff; padding: 10px;">Hostels</div>
+                    <a href="leave-request.html" class="popout-item"><span class="popout-icon">◎</span> Leave Request</a>
+                    <a href="leave-history.html" class="popout-item"><span class="popout-icon">◎</span> Leave History</a>
+                    <div class="popout-item"><span class="popout-icon">◎</span> Biometric Report</div>
+                    <div class="popout-item"><span class="popout-icon">◎</span> Hostel Room Allotment</div>
+                </div>
+            </div>
+            <div class="sidebar-icon popout-trigger" data-target="my-info-popout">
+                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2l-5.5 9h11zM3 14v7h7v-7H3zm11 0v7h7v-7h-7z"/></svg>
+                
+                <div class="sidebar-popout" id="my-info-popout">
+                    <div class="popout-header">My Info</div>
+                    <a href="profile.html" class="popout-item"><span class="popout-icon">⚙</span> Profile</a>
+                    <div class="popout-item"><span class="popout-icon">⚙</span> Credentials</div>
+                    <div class="popout-item"><span class="popout-icon">⚙</span> Acknowledgement View</div>
+                    <div class="popout-item"><span class="popout-icon">⚙</span> Student Bank Info</div>
+                    <div class="popout-item"><span class="popout-icon">⚙</span> AAPAR ID Upload</div>
+                </div>
+            </div>
+            <div class="sidebar-icon"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
+            <div class="sidebar-icon"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+            <div class="sidebar-icon"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm16 2h-8c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-4 7c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg></div>
+            <div class="sidebar-icon"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+            <div class="sidebar-icon"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 C9.65,21.59,9.85,21.76,10.09,21.76h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg></div>
+            <div class="sidebar-icon"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg></div>
+            <div class="sidebar-icon"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg></div>
+        </aside>
+
+        <main class="dashboard-content" style="background-color: #f0f2f5;">
+            <div class="panel" style="margin: 20px; box-shadow: none; border-radius: 0; border: none;">
+                <div class="panel-header" style="font-size: 18px; color: #333; padding: 15px 20px; border-bottom: 2px solid #5bc0de; background-color: #fff;">
+                    Hostel Leave Details
+                </div>
+                <div class="panel-body" style="padding: 20px; background-color: #fff;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 12px; text-align: left;">
+                        <thead>
+                            <tr style="border-top: 1px solid #777; border-bottom: 1px solid #777;">
+                                <th style="padding: 10px;">Leave Id</th>
+                                <th style="padding: 10px;">Visit Place</th>
+                                <th style="padding: 10px;">Reason</th>
+                                <th style="padding: 10px;">Leave Type</th>
+                                <th style="padding: 10px;">From</th>
+                                <th style="padding: 10px;">To</th>
+                                <th style="padding: 10px;">Status</th>
+                                <th style="padding: 10px;">Remarks</th>
+                                <th style="padding: 10px; text-align: center;">Gate Pass OUT</th>
+                                <th style="padding: 10px; text-align: center;">Gate Pass IN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background-color: #f9f9f9; border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px; color: #777;">L2475966</td>
+                                <td style="padding: 10px; color: #333;">Yamunanagar Haryana</td>
+                                <td style="padding: 10px; color: #333;">Have to Visit Home for family function</td>
+                                <td style="padding: 10px; color: #777;">HOME TOWN</td>
+                                <td style="padding: 10px; color: #333;">20-AUG-2026 09:00</td>
+                                <td style="padding: 10px; color: #333;">24-AUG-2026 20:00</td>
+                                <td style="padding: 10px; color: #777;">REQUEST APPROVED</td>
+                                <td style="padding: 10px; color: #777; font-size: 11px;">by [ 100505 ] [ ABHISHEK KUMAR SHUKLA ]</td>
+                                <td style="padding: 10px; text-align: center;"><svg class="gatepass-btn" viewBox="0 0 24 24" width="18" height="18" fill="#5bc0de" style="cursor: pointer;"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></td>
+                                <td style="padding: 10px; text-align: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#5bc0de" class="gatepass-btn" style="cursor: pointer;"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px; color: #777;">L2466028</td>
+                                <td style="padding: 10px; color: #333;">Haryana</td>
+                                <td style="padding: 10px; color: #333;">For summer vacation</td>
+                                <td style="padding: 10px; color: #777;">SUMMER VACATION</td>
+                                <td style="padding: 10px; color: #333;">30-APR-2026 11:00</td>
+                                <td style="padding: 10px; color: #333;">30-JUN-2026 22:00</td>
+                                <td style="padding: 10px; color: #777;">PROCTOR APPROVAL PENDING</td>
+                                <td style="padding: 10px; color: #777; font-size: 11px;">REQUEST RAISED</td>
+                                <td style="padding: 10px; text-align: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg></td>
+                                <td style="padding: 10px; text-align: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px; color: #777;">L2160177</td>
+                                <td style="padding: 10px; color: #333;">Haryana</td>
+                                <td style="padding: 10px; color: #333;">For summer vacation</td>
+                                <td style="padding: 10px; color: #777;">SUMMER VACATION</td>
+                                <td style="padding: 10px; color: #333;">23-APR-2025 08:15 AM</td>
+                                <td style="padding: 10px; color: #333;">15-JUN-2025 07:15 PM</td>
+                                <td style="padding: 10px; color: #777;">REQUEST APPROVED</td>
+                                <td style="padding: 10px; color: #777; font-size: 11px;">by [ 100505 ] [ ABHISHEK KUMAR SHUKLA ]</td>
+                                <td style="padding: 10px; text-align: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg></td>
+                                <td style="padding: 10px; text-align: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px; color: #777;">L2154319</td>
+                                <td style="padding: 10px; color: #333;">Kothri kalan</td>
+                                <td style="padding: 10px; color: #333;">To transport the luggage to my day scholar friend's house.</td>
+                                <td style="padding: 10px; color: #777;">DAY OUTING</td>
+                                <td style="padding: 10px; color: #333;">20-APR-2025 09:00 AM</td>
+                                <td style="padding: 10px; color: #333;">20-APR-2025 07:00 PM</td>
+                                <td style="padding: 10px; color: #777;">REQUEST APPROVED</td>
+                                <td style="padding: 10px; color: #777; font-size: 11px;">by [ 100505 ] [ ABHISHEK KUMAR SHUKLA ]</td>
+                                <td style="padding: 10px; text-align: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg></td>
+                                <td style="padding: 10px; text-align: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px; color: #777;">L2149080</td>
+                                <td style="padding: 10px; color: #333;">Bhopal</td>
+                                <td style="padding: 10px; color: #333;">I have been unwell from past three to four days so i have to go for checkup in bhoapl because I am felling very unhealthy</td>
+                                <td style="padding: 10px; color: #777;">EMERGENCY LEAVE</td>
+                                <td style="padding: 10px; color: #333;">08-APR-2025 08:30 AM</td>
+                                <td style="padding: 10px; color: #333;">08-APR-2025 11:30 PM</td>
+                                <td style="padding: 10px; color: #777;">REQUEST APPROVED</td>
+                                <td style="padding: 10px; color: #777; font-size: 11px;">by [ 100505 ] [ ABHISHEK KUMAR SHUKLA ]</td>
+                                <td style="padding: 10px; text-align: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg></td>
+                                <td style="padding: 10px; text-align: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px; color: #777;">L2122011</td>
+                                <td style="padding: 10px; color: #333;">Haryana</td>
+                                <td style="padding: 10px; color: #333;">After term end exam I have to go to my hometown for vacation</td>
+                                <td style="padding: 10px; color: #777;">WINTER VACATION</td>
+                                <td style="padding: 10px; color: #333;">09-JAN-2025 11:00 AM</td>
+                                <td style="padding: 10px; color: #333;">19-JAN-2025 08:45 PM</td>
+                                <td style="padding: 10px; color: #777;">REQUEST APPROVED</td>
+                                <td style="padding: 10px; color: #777; font-size: 11px;">by [ 100505 ] [ ABHISHEK KUMAR SHUKLA ]</td>
+                                <td style="padding: 10px; text-align: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg></td>
+                                <td style="padding: 10px; text-align: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ccc"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Gate Pass Modal -->
+            <div id="gatepass-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; align-items: center; justify-content: center;">
+                <div style="background: white; padding: 30px; border-radius: 4px; text-align: center; width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <h2 style="margin-top: 0; color: #555;">Gate Pass</h2>
+                    <div style="margin: 20px 0;">
+                        <!-- Using inline SVG or pseudo-element for barcode -->
+                        <div style="height: 80px; width: 100%; background: repeating-linear-gradient(90deg, #000, #000 3px, #fff 3px, #fff 6px, #000 6px, #000 7px, #fff 7px, #fff 11px, #000 11px, #000 15px, #fff 15px, #fff 18px); margin-bottom: 10px;"></div>
+                        <div style="font-size: 10px; color: #888;">Scan at hostel gate</div>
+                    </div>
+                    <button id="close-modal" style="background: #5bc0de; color: white; border: none; padding: 8px 25px; border-radius: 4px; cursor: pointer; margin-top: 10px;">OK</button>
+                </div>
+            </div>
+
+            <script>
+                document.querySelectorAll('.gatepass-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        document.getElementById('gatepass-modal').style.display = 'flex';
+                    });
+                });
+                document.getElementById('close-modal').addEventListener('click', () => {
+                    document.getElementById('gatepass-modal').style.display = 'none';
+                });
+            </script>
+        </main>
+    </div>
+
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
