@@ -200,9 +200,17 @@ body {
     fill: #333;
 }
 
-.sidebar-icon:hover, .sidebar-icon.active {
+.sidebar-icon:hover {
     background: #f0f0f0;
     border-left: 3px solid #1f4e79;
+}
+
+.sidebar-icon.active {
+    background: #1860db;
+    border-left: none;
+}
+.sidebar-icon.active svg {
+    fill: #ffffff;
 }
 
 /* Dashboard Content */
