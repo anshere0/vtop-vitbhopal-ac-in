@@ -191,20 +191,29 @@
                 <div style="background: white; padding: 30px; padding-bottom: 25px; border-radius: 4px; text-align: center; width: 420px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
                     <h2 style="margin-top: 0; margin-bottom: 20px; color: #555; font-size: 26px;">Gate Pass</h2>
                     <div style="margin: 0 0 25px 0;">
-                        <!-- SVG Barcode with accurate border -->
-                        <svg width="100%" height="110" preserveAspectRatio="none" viewBox="0 0 200 50" style="border: 1px solid #ccc; display: block; box-sizing: border-box;">
-                            <rect x="0" y="0" width="100%" height="100%" fill="white"/>
-                            <path d="M10,0V50 M14,0V50 M16,0V50 M22,0V50 M26,0V50 M32,0V50 M36,0V50 M40,0V50 M44,0V50 M46,0V50 M54,0V50 M58,0V50 M60,0V50 M66,0V50 M72,0V50 M74,0V50 M82,0V50 M86,0V50 M88,0V50 M94,0V50 M100,0V50 M102,0V50 M110,0V50 M114,0V50 M116,0V50 M122,0V50 M126,0V50 M132,0V50 M136,0V50 M140,0V50 M144,0V50 M146,0V50 M154,0V50 M158,0V50 M160,0V50 M166,0V50 M172,0V50 M174,0V50 M182,0V50 M186,0V50 M188,0V50" stroke="black" stroke-width="2"/>
-                            <path d="M12,0V50 M20,0V50 M30,0V50 M38,0V50 M50,0V50 M64,0V50 M78,0V50 M92,0V50 M106,0V50 M120,0V50 M130,0V50 M138,0V50 M150,0V50 M164,0V50 M178,0V50 M192,0V50" stroke="black" stroke-width="4"/>
-                            <path d="M48,0V50 M76,0V50 M104,0V50 M148,0V50 M176,0V50" stroke="black" stroke-width="6"/>
-                        </svg>
+                        <!-- Accurate Barcode using JsBarcode -->
+                        <div style="border: 1px solid #ccc; padding: 10px; background: white; box-sizing: border-box;">
+                            <svg id="gatepass-barcode" style="width: 100%; height: 100px; display: block;"></svg>
+                        </div>
                         <div style="font-size: 12px; color: #666; margin-top: 8px;">Scan at hostel gate</div>
                     </div>
                     <button id="close-modal" style="background: #8cd4f5; color: white; border: none; padding: 10px 40px; border-radius: 4px; cursor: pointer; font-size: 15px;">OK</button>
                 </div>
             </div>
 
+            <!-- JsBarcode Library -->
+            <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
             <script>
+                // Initialize the exact barcode
+                JsBarcode("#gatepass-barcode", "24BSA10213", {
+                    format: "CODE128",
+                    lineColor: "#000",
+                    width: 2,
+                    height: 100,
+                    displayValue: false,
+                    margin: 0
+                });
+
                 document.querySelectorAll('.gatepass-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
                         document.getElementById('gatepass-modal').style.display = 'flex';
