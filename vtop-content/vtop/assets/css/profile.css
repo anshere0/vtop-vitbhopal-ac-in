@@ -1,8 +1,9 @@
 /* Profile Page Specific Styles */
 .profile-content {
+    flex: 1;
     padding: 20px;
     background-color: #f4f6f9;
-    min-height: calc(100vh - 60px);
+    overflow-y: auto;
 }
 
 .profile-header-card {

@@ -2,8 +2,14 @@
 
 /* Collapse to single column only on actual mobile screens (not desktop mode) */
 @media (max-width: 800px) {
-    .layout-grid {
+    .layout-grid, .profile-details {
         grid-template-columns: 1fr; /* Stack columns on tablet/mobile */
+    }
+    
+    .profile-header-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     
     .campus, .session-time {
@@ -27,7 +33,7 @@
         display: none; /* Hide thin sidebar on mobile, use hamburger instead */
     }
     
-    .dashboard-content {
+    .dashboard-content, .profile-content {
         padding: 10px;
     }
     
@@ -35,5 +41,9 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 5px;
+    }
+    
+    .panel-body, .accordion-content, #tab-leave-status {
+        overflow-x: auto;
     }
 }
